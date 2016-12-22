@@ -10,3 +10,11 @@ in /boot/config.txt to increase bits per pixel.
 To stop the screen from going black due to inactivity, run:
 sudo apt-get install xscreensaver
 and disable screen saver
+
+
+sudo apt-get install supervisor
+
+sudo cp photoframe.conf /etc/supervisor/conf.d/photoframe.conf
+
+sudo supervisorctl update
+sudo supervisorctl restart photoframe
