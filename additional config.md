@@ -1,2 +1,12 @@
-Set framebuffer_depth=24 in /boot/config.txt to increase bits per pixel.
-Set BLANK_TIME=0 in /etc/kbd/config to prevent the screen from going blank.
+
+Install requirements for Pillow:
+sudo apt-get install python-dev python-setuptools
+sudo apt-get install libtiff5-dev libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+
+Set:
+framebuffer_depth=24
+in /boot/config.txt to increase bits per pixel.
+
+To stop the screen from going black due to inactivity, run:
+sudo apt-get install xscreensaver
+and disable screen saver
