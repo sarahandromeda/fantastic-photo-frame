@@ -18,3 +18,10 @@ sudo cp photoframe.conf /etc/supervisor/conf.d/photoframe.conf
 
 sudo supervisorctl update
 sudo supervisorctl restart photoframe
+
+Install rclone to sync the images directory:
+http://rclone.org/install/
+
+rclone mount google_drive: fantastic-photo-frame/static/images/ --allow-non-empty
+or
+rclone sync google_drive: fantastic-photo-frame/static/images/
