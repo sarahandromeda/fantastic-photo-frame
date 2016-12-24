@@ -25,3 +25,9 @@ http://rclone.org/install/
 rclone mount google_drive: fantastic-photo-frame/static/images/ --allow-non-empty
 or
 rclone sync google_drive: fantastic-photo-frame/static/images/
+
+After installing teamviewer, add:
+ExecStartPre = sleep 60
+in 
+/etc/systemd/system/teamviewerd.service
+section Service
