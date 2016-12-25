@@ -1,8 +1,8 @@
 from __future__ import division
 
 import functools
+import os
 import random
-from os import walk
 
 from Tkinter import *
 import sys
@@ -60,16 +60,22 @@ def image_transpose_exif(im):
         return functools.reduce(lambda im, op: im.transpose(op), seq, im)
 
 
-def get_next_image():
+def get_next_image(source='static/images'):
     file_list = []
-    for _, _, filenames in walk('static/images'):
-        file_list.extend(filenames)
-        break
-    image_list = [f for f in file_list if f.endswith(('.jpg', '.png', '.JPG'))]
-    return 'static/images/{}'.format(random.choice(image_list))
+    for dirpath, _, filenames in os.walk(source):
+        file_list.extend([
+            os.path.join(dirpath, filename) for filename in filenames
+            if filename.endswith(('.jpg', '.png', '.JPG'))
+        ])
+    if not file_list:
+        if not source == 'static/images':
+            return get_next_image('static/images')
+        else:
+            raise RuntimeError('Could not find any images')
+    return random.choice(file_list)
 
 def set_image(event=None):
-    image = Image.open(get_next_image())
+    image = Image.open(get_next_image('/opt/photoframe/images'))
     image = image_transpose_exif(image)
     image_width, image_height = image.size
     if image_height / image_width > frame_height / frame_width:
