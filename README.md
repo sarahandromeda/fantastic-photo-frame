@@ -1,4 +1,4 @@
-# Digital Photo Frame
+# Fantastic Photo Frame
 
 Software for displaying photos on a screen,
 making it look good and easy to update.
@@ -48,6 +48,7 @@ http://rclone.org/install/
 Create images directory. Photoframe will check this directory for pictures.
 ```
 sudo mkdir -p /opt/photoframe/images
+sudo chown pi:pi /opt/photoframe/images
 ```
 
 To mount it virtually, (photos get fetched from the internet and not stored locally):
