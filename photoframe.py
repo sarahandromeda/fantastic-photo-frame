@@ -4,7 +4,7 @@ import functools
 import os
 import random
 
-from Tkinter import *
+from tkinter import *
 import sys
 from PIL import Image, ImageTk
 
@@ -21,8 +21,8 @@ frame_height = screen_height - 100
 bg_pattern = Image.open("static/paper.png")
 pattern_width, pattern_height = bg_pattern.size
 background_image = Image.new('RGB', (screen_width, screen_height))
-for i in xrange(0, screen_width, pattern_width):
-    for j in xrange(0, screen_height, pattern_height):
+for i in range(0, screen_width, pattern_width):
+    for j in range(0, screen_height, pattern_height):
         background_image.paste(bg_pattern, (i, j))
 
 
